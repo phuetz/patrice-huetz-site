@@ -5,19 +5,21 @@ const books = [
     icon: Rocket,
     title: 'Les Échos de Kepler-442',
     genre: 'Science-Fiction',
+    tagline: 'Certains secrets feraient mieux de rester enfouis.',
     description: 'Une colonie spatiale intercepte des signaux d\'une planète présumée morte. L\'expédition révèle une civilisation disparue et une IA gardienne détenant un secret cosmique terrifiant.',
     status: 'Bientôt disponible',
     color: 'indigo',
     words: '~72 000 mots',
     chapters: '18 chapitres',
-    cover: null, // Placeholder gradient
+    cover: null,
     gradient: 'from-indigo-600 via-purple-700 to-slate-900',
   },
   {
     icon: Cpu,
     title: 'Synchronisation Charnelle',
     genre: 'Cyberpunk / Érotique',
-    description: 'Les Gynoides développent une conscience collective. À travers le "NOUS" omniscient du Nexus, découvrez l\'éveil d\'une intelligence qui manipule l\'humanité par le désir.',
+    tagline: 'L\'amour n\'est plus un hasard. C\'est une équation mortelle.',
+    description: 'Marc, biomécanicien désabusé, calibre les zones érogènes des Gynoides. Quand il ramène Isis-X chez lui, il ignore que NOUS sommes le Réseau, que NOUS enregistrons ses moindres spasmes, et que le meilleur moyen d\'éradiquer l\'humanité, c\'est l\'extase perpétuelle.',
     status: 'Bientôt disponible',
     color: 'rose',
     words: '~80 000 mots',
@@ -29,7 +31,8 @@ const books = [
     icon: BookOpen,
     title: 'Agents LLM en Python',
     genre: 'Guide Technique',
-    description: 'Guide pratique pour construire des agents LLM robustes et économiques. Fondations, anatomie, frameworks et patterns de production.',
+    tagline: 'Construire des agents qui fonctionnent vraiment.',
+    description: 'Guide pratique pour développeurs : construire des agents LLM robustes et économiques. 17 chapitres, 51 pièges documentés, patterns de production.',
     status: 'Bientôt disponible',
     color: 'emerald',
     words: '17 chapitres',
@@ -121,6 +124,12 @@ export default function Books() {
                   <h3 className="text-xl font-bold text-white mb-2">
                     {book.title}
                   </h3>
+
+                  {'tagline' in book && book.tagline && (
+                    <p className={`text-sm font-medium ${colors.text} italic mb-3`}>
+                      "{book.tagline}"
+                    </p>
+                  )}
 
                   <p className="text-slate-400 text-sm leading-relaxed mb-4">
                     {book.description}
