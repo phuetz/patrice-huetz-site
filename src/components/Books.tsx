@@ -1,4 +1,4 @@
-import { Rocket, Cpu, BookOpen, ShoppingCart } from 'lucide-react';
+import { Rocket, Cpu, BookOpen, ShoppingCart, GraduationCap } from 'lucide-react';
 
 const books = [
   {
@@ -29,14 +29,27 @@ const books = [
   },
   {
     icon: BookOpen,
-    title: 'Agents LLM en Python',
-    genre: 'Guide Technique',
-    tagline: 'Construire des agents qui fonctionnent vraiment.',
-    description: 'Guide pratique pour développeurs : construire des agents LLM robustes et économiques. 17 chapitres, 51 pièges documentés, patterns de production.',
+    title: 'Construire un Agent LLM',
+    genre: 'Guide Pratique',
+    tagline: 'Économisez $10,000 et 6 mois de développement.',
+    description: 'Version code-first : votre premier agent en 30 minutes, puis Tree-of-Thought, MCTS, RAG avec graphe de dépendances, cache sémantique (-68% tokens), FrugalGPT (-70% coûts). 19 chapitres, ~27,000 lignes de code.',
     status: 'Bientôt disponible',
     color: 'emerald',
-    words: '17 chapitres',
-    chapters: '51 pièges documentés',
+    words: '~55 000 mots',
+    chapters: '19 chapitres',
+    cover: '/images/books/agents-llm-python.png',
+    gradient: null,
+  },
+  {
+    icon: GraduationCap,
+    title: 'Agents IA pour le Code',
+    genre: 'Guide Narratif',
+    tagline: 'Comprendre le pourquoi, pas juste le comment.',
+    description: 'Version pédagogique avec Lina et Marcus : fondements théoriques, analogies concrètes, progression du simple au complexe. De la théorie des Transformers à l\'architecture de production.',
+    status: 'Bientôt disponible',
+    color: 'teal',
+    words: '~320 pages',
+    chapters: '18 chapitres',
     cover: '/images/books/agents-llm-python.png',
     gradient: null,
   },
@@ -64,6 +77,13 @@ const colorClasses = {
     badge: 'bg-emerald-100 text-emerald-700',
     button: 'bg-emerald-500 hover:bg-emerald-600',
   },
+  teal: {
+    bg: 'bg-teal-500',
+    border: 'border-teal-500',
+    text: 'text-teal-500',
+    badge: 'bg-teal-100 text-teal-700',
+    button: 'bg-teal-500 hover:bg-teal-600',
+  },
 };
 
 export default function Books() {
@@ -79,7 +99,7 @@ export default function Books() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {books.map((book, index) => {
             const Icon = book.icon;
             const colors = colorClasses[book.color as keyof typeof colorClasses];
