@@ -1,0 +1,6 @@
+# robots.txt pour BELITEI
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://belitei.fr/sitemap.xml
