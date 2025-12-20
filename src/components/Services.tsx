@@ -1,89 +1,130 @@
-import { Bot, Code2, Database, Workflow, Lightbulb, GraduationCap } from 'lucide-react';
+import { Bot, Zap, Puzzle, Brain, MessageSquare, Rocket } from 'lucide-react';
 
 const services = [
   {
     icon: Bot,
-    title: 'Agents IA & LLM',
-    description: 'Conception et développement d\'agents intelligents basés sur les LLM (GPT, Claude). Automatisation de tâches complexes, assistants conversationnels, RAG.',
+    title: 'Agents IA sur mesure',
+    description: 'Des assistants qui pensent, décident et agissent. Pas des chatbots qui récitent — des agents qui résolvent.',
+    example: 'Analyste financier automatisé, assistant de recherche, agent de support intelligent',
   },
   {
-    icon: Code2,
-    title: 'Développement Python',
-    description: 'Applications backend, APIs REST, scripts d\'automatisation, intégration de services. Code propre, testé et documenté.',
+    icon: Zap,
+    title: 'Automatisation intelligente',
+    description: 'Vos processus répétitifs méritent mieux que votre temps. Laissez l\'IA s\'en occuper pendant que vous créez.',
+    example: 'Traitement de documents, extraction de données, workflows automatisés',
   },
   {
-    icon: Database,
-    title: 'Intégration & APIs',
-    description: 'Connexion de vos systèmes existants avec des APIs tierces (OpenAI, Anthropic, etc.). Mise en place de pipelines de données.',
+    icon: Puzzle,
+    title: 'Intégration d\'IA',
+    description: 'Connecter Claude ou GPT à vos outils existants. L\'IA ne remplace pas vos systèmes, elle les augmente.',
+    example: 'APIs sur mesure, plugins, intégration CRM/ERP',
   },
   {
-    icon: Workflow,
-    title: 'Automatisation',
-    description: 'Automatisation des processus métier répétitifs grâce à l\'IA. Réduction des coûts et gain de productivité.',
+    icon: Brain,
+    title: 'RAG & Mémoire',
+    description: 'Vos documents deviennent une base de connaissances interrogeable. L\'IA qui connaît vraiment votre métier.',
+    example: 'Documentation interne, FAQ intelligente, assistant expert',
   },
   {
-    icon: Lightbulb,
-    title: 'Conseil & Audit IA',
-    description: 'Évaluation de vos besoins en IA, recommandations stratégiques, choix des technologies adaptées à votre contexte.',
+    icon: MessageSquare,
+    title: 'Conseil & Stratégie IA',
+    description: 'Avant de coder, on réfléchit. Quel problème résout-on vraiment ? Quelle approche a du sens pour vous ?',
+    example: 'Audit de faisabilité, choix technologiques, roadmap IA',
   },
   {
-    icon: GraduationCap,
-    title: 'Formation',
-    description: 'Formation de vos équipes aux outils IA modernes : prompt engineering, utilisation des LLM, bonnes pratiques.',
+    icon: Rocket,
+    title: 'Prototypage rapide',
+    description: 'Une idée le lundi, un prototype le vendredi. Tester vite, apprendre vite, itérer vite.',
+    example: 'POC en une semaine, MVP en un mois',
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            Services IT
+          <span className="text-emerald-600 font-medium text-sm uppercase tracking-wider">Ce que je construis</span>
+          <h2 className="text-4xl font-bold text-slate-900 mt-2 mb-4">
+            L'IA au service de vos idées
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Expertise en Intelligence Artificielle et développement Python pour transformer vos idées en solutions concrètes
+            Je ne vends pas de l'IA pour le buzz. Je résous des problèmes concrets
+            avec les bons outils — parfois c'est de l'IA, parfois c'est du bon sens.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <div
                 key={index}
-                className="bg-slate-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-200 hover:border-emerald-500 group"
+                className="bg-white rounded-xl p-6 hover:shadow-xl transition-all duration-300 border border-slate-200 hover:border-emerald-400 group relative overflow-hidden"
               >
-                <div className="w-16 h-16 bg-emerald-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-8 h-8 text-white" />
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                <div className="relative">
+                  <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-emerald-500 transition-colors duration-300">
+                    <Icon className="w-6 h-6 text-emerald-600 group-hover:text-white transition-colors duration-300" />
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-slate-600 text-sm leading-relaxed mb-3">
+                    {service.description}
+                  </p>
+
+                  <p className="text-xs text-slate-400 italic">
+                    Ex: {service.example}
+                  </p>
                 </div>
-
-                <h3 className="text-xl font-bold text-slate-900 mb-3">
-                  {service.title}
-                </h3>
-
-                <p className="text-slate-600 leading-relaxed">
-                  {service.description}
-                </p>
               </div>
             );
           })}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-8 lg:p-12 text-white">
-          <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-              Un projet en tête ?
-            </h3>
-            <p className="text-emerald-100 text-lg mb-8">
-              Discutons de vos besoins en IA et développement. Premier échange gratuit et sans engagement.
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-white text-emerald-600 font-semibold px-8 py-4 rounded-lg hover:bg-emerald-50 transition-all duration-300"
-            >
-              Prendre contact
-            </a>
+        {/* CTA Section */}
+        <div className="mt-16 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl transform rotate-1"></div>
+          <div className="relative bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl p-8 lg:p-12 text-white">
+            <div className="max-w-3xl mx-auto">
+              <div className="flex flex-col lg:flex-row items-center gap-8">
+                <div className="flex-1 text-center lg:text-left">
+                  <h3 className="text-2xl lg:text-3xl font-bold mb-3">
+                    Vous avez un projet flou ?
+                  </h3>
+                  <p className="text-emerald-100 text-lg">
+                    Parfait. C'est là que je suis le plus utile. On clarifie ensemble,
+                    on identifie ce qui a vraiment de la valeur, et on construit.
+                  </p>
+                </div>
+                <div className="flex-shrink-0">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 bg-white text-emerald-600 font-bold px-8 py-4 rounded-lg hover:bg-emerald-50 transition-all duration-300 shadow-lg"
+                  >
+                    Discutons-en
+                    <span className="text-xl">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tech stack */}
+        <div className="mt-12 text-center">
+          <p className="text-slate-500 text-sm mb-4">Technologies que j'utilise au quotidien</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {['Python', 'LangChain', 'Claude API', 'OpenAI', 'FastAPI', 'React', 'PostgreSQL', 'Docker'].map((tech) => (
+              <span key={tech} className="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-full text-sm">
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
       </div>
