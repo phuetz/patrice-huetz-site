@@ -11,7 +11,7 @@ const books = [
     color: 'indigo',
     words: '~72 000 mots',
     chapters: '18 chapitres',
-    cover: '/images/books/les-echos-de-kepler-442.jpg',
+    cover: '/images/books/les-echos-de-kepler-442.png',
     gradient: null,
   },
   {
