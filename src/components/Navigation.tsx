@@ -34,6 +34,12 @@ export default function Navigation() {
                 Services IT
               </a>
               <a
+                href="#blog"
+                className="hover:text-indigo-400 transition-colors duration-300 font-medium"
+              >
+                Blog
+              </a>
+              <a
                 href="#apropos"
                 className="hover:text-indigo-400 transition-colors duration-300 font-medium"
               >
@@ -82,6 +88,13 @@ export default function Navigation() {
               onClick={() => setIsOpen(false)}
             >
               Services IT
+            </a>
+            <a
+              href="#blog"
+              className="block hover:text-indigo-400 transition-colors duration-300 font-medium py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Blog
             </a>
             <a
               href="#apropos"

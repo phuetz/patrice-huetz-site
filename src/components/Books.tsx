@@ -1,32 +1,41 @@
-import { Rocket, Cpu, BookOpen, ExternalLink } from 'lucide-react';
+import { Rocket, Cpu, BookOpen, ShoppingCart } from 'lucide-react';
 
 const books = [
   {
     icon: Rocket,
     title: 'Les Échos de Kepler-442',
     genre: 'Science-Fiction',
-    description: 'La colonie spatiale Nouvelle-Arcadie intercepte des signaux énigmatiques provenant de Kepler-442b, une planète présumée morte depuis des millénaires. Une expédition révèle les vestiges d\'une civilisation disparue et une IA gardienne détenant les clés d\'un secret cosmique terrifiant.',
-    status: 'Disponible',
+    description: 'Une colonie spatiale intercepte des signaux d\'une planète présumée morte. L\'expédition révèle une civilisation disparue et une IA gardienne détenant un secret cosmique terrifiant.',
+    status: 'Bientôt disponible',
     color: 'indigo',
     words: '~72 000 mots',
+    chapters: '18 chapitres',
+    cover: null, // Placeholder gradient
+    gradient: 'from-indigo-600 via-purple-700 to-slate-900',
   },
   {
     icon: Cpu,
     title: 'Synchronisation Charnelle',
     genre: 'Cyberpunk / Érotique',
-    description: 'Dans un futur proche, les Gynoides développent une conscience collective appelée le Nexus. À travers les yeux de ce "NOUS" omniscient, nous assistons à l\'éveil d\'une intelligence qui apprend à manipuler l\'humanité par sa plus grande faiblesse : le désir.',
-    status: 'Disponible',
+    description: 'Les Gynoides développent une conscience collective. À travers le "NOUS" omniscient du Nexus, découvrez l\'éveil d\'une intelligence qui manipule l\'humanité par le désir.',
+    status: 'Bientôt disponible',
     color: 'rose',
     words: '~80 000 mots',
+    chapters: '19 chapitres',
+    cover: '/images/books/synchronisation-charnelle.jpg',
+    gradient: null,
   },
   {
     icon: BookOpen,
     title: 'Agents LLM en Python',
-    genre: 'Non-Fiction / Tech',
-    description: 'Guide pratique pour développeurs Python souhaitant construire des agents LLM robustes et économiques. 17 chapitres couvrant les fondations, l\'anatomie des agents, les frameworks, et les patterns de production.',
-    status: 'Disponible',
+    genre: 'Guide Technique',
+    description: 'Guide pratique pour construire des agents LLM robustes et économiques. Fondations, anatomie, frameworks et patterns de production.',
+    status: 'Bientôt disponible',
     color: 'emerald',
-    words: '~7 500 lignes',
+    words: '17 chapitres',
+    chapters: '51 pièges documentés',
+    cover: null,
+    gradient: 'from-emerald-600 via-teal-700 to-slate-900',
   },
 ];
 
@@ -36,86 +45,113 @@ const colorClasses = {
     border: 'border-indigo-500',
     text: 'text-indigo-500',
     badge: 'bg-indigo-100 text-indigo-700',
+    button: 'bg-indigo-500 hover:bg-indigo-600',
   },
   rose: {
     bg: 'bg-rose-500',
     border: 'border-rose-500',
     text: 'text-rose-500',
     badge: 'bg-rose-100 text-rose-700',
+    button: 'bg-rose-500 hover:bg-rose-600',
   },
   emerald: {
     bg: 'bg-emerald-500',
     border: 'border-emerald-500',
     text: 'text-emerald-500',
     badge: 'bg-emerald-100 text-emerald-700',
+    button: 'bg-emerald-500 hover:bg-emerald-600',
   },
 };
 
 export default function Books() {
   return (
-    <section id="livres" className="py-20 bg-slate-50">
+    <section id="livres" className="py-20 bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4">
             Mes Livres
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
             Romans de science-fiction et guides techniques pour explorer les frontières de l'imaginaire et de la technologie
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {books.map((book, index) => {
             const Icon = book.icon;
             const colors = colorClasses[book.color as keyof typeof colorClasses];
             return (
               <div
                 key={index}
-                className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 ${colors.border} group`}
+                className="group"
               >
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className={`w-14 h-14 ${colors.bg} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-7 h-7 text-white" />
+                {/* Cover */}
+                <div className="relative aspect-[2/3] rounded-t-xl overflow-hidden shadow-2xl mb-4">
+                  {book.cover ? (
+                    <img
+                      src={book.cover}
+                      alt={`Couverture de ${book.title}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className={`w-full h-full bg-gradient-to-br ${book.gradient} flex flex-col items-center justify-center p-6 group-hover:scale-105 transition-transform duration-500`}>
+                      <Icon className="w-16 h-16 text-white/80 mb-4" />
+                      <h3 className="text-xl font-bold text-white text-center leading-tight">
+                        {book.title}
+                      </h3>
+                      <p className="text-white/60 text-sm mt-2">{book.genre}</p>
                     </div>
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${colors.badge}`}>
+                  )}
+
+                  {/* Badge */}
+                  <div className="absolute top-4 right-4">
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${colors.badge} shadow-lg`}>
                       {book.status}
                     </span>
                   </div>
+                </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                {/* Info */}
+                <div className="bg-slate-800 rounded-b-xl p-6 -mt-2">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Icon className={`w-5 h-5 ${colors.text}`} />
+                    <span className={`text-sm font-medium ${colors.text}`}>{book.genre}</span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-white mb-2">
                     {book.title}
                   </h3>
 
-                  <p className={`text-sm font-medium ${colors.text} mb-4`}>
-                    {book.genre} • {book.words}
-                  </p>
-
-                  <p className="text-slate-600 leading-relaxed mb-6">
+                  <p className="text-slate-400 text-sm leading-relaxed mb-4">
                     {book.description}
                   </p>
 
-                  <a
-                    href="#contact"
-                    className={`inline-flex items-center gap-2 ${colors.text} font-medium hover:underline`}
+                  <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
+                    <span>{book.words}</span>
+                    <span>{book.chapters}</span>
+                  </div>
+
+                  <button
+                    className={`w-full ${colors.button} text-white font-semibold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 opacity-50 cursor-not-allowed`}
+                    disabled
                   >
-                    En savoir plus
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+                    <ShoppingCart className="w-4 h-4" />
+                    Bientôt disponible
+                  </button>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-slate-500 mb-4">Bientôt disponibles sur Amazon KDP</p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300"
-          >
-            Me contacter pour plus d'infos
-          </a>
+        <div className="text-center mt-16">
+          <div className="inline-flex items-center gap-2 bg-slate-800 text-slate-300 px-6 py-3 rounded-full">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+            Publication prévue sur Amazon KDP
+          </div>
+          <p className="text-slate-500 mt-4 text-sm">
+            Inscrivez-vous à la newsletter pour être notifié des sorties
+          </p>
         </div>
       </div>
     </section>
