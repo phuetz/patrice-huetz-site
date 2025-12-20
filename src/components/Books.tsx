@@ -37,8 +37,8 @@ const books = [
     color: 'emerald',
     words: '17 chapitres',
     chapters: '51 pièges documentés',
-    cover: null,
-    gradient: 'from-emerald-600 via-teal-700 to-slate-900',
+    cover: '/images/books/agents-llm-python.png',
+    gradient: null,
   },
 ];
 
@@ -94,10 +94,10 @@ export default function Books() {
                     <img
                       src={book.cover}
                       alt={`Couverture de ${book.title}`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className={`w-full h-full bg-gradient-to-br ${book.gradient} flex flex-col items-center justify-center p-6 group-hover:scale-105 transition-transform duration-500`}>
+                    <div className={`w-full h-full bg-gradient-to-br ${book.gradient} flex flex-col items-center justify-center p-6`}>
                       <Icon className="w-16 h-16 text-white/80 mb-4" />
                       <h3 className="text-xl font-bold text-white text-center leading-tight">
                         {book.title}
