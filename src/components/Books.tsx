@@ -1,4 +1,4 @@
-import { Rocket, Cpu, BookOpen, ShoppingCart, GraduationCap } from 'lucide-react';
+import { Rocket, Cpu, BookOpen, ShoppingCart, GraduationCap, Code2 } from 'lucide-react';
 
 const books = [
   {
@@ -53,6 +53,19 @@ const books = [
     cover: '/images/books/agents-llm-python.png',
     gradient: null,
   },
+  {
+    icon: Code2,
+    title: 'Agents LLM en Python',
+    genre: 'Guide Python',
+    tagline: 'Des agents qui marchent. En Python.',
+    description: 'LangChain, CrewAI, DSPy, LangGraph : le guide complet. Format strict : problème, solution rapide, deep dive, 3 pièges par chapitre. Projet fil rouge Analys-Bot inclus.',
+    status: 'Bientôt disponible',
+    color: 'amber',
+    words: '17 chapitres',
+    chapters: '51 pièges documentés',
+    cover: null,
+    gradient: 'from-amber-500 via-yellow-600 to-slate-900',
+  },
 ];
 
 const colorClasses = {
@@ -84,6 +97,13 @@ const colorClasses = {
     badge: 'bg-teal-100 text-teal-700',
     button: 'bg-teal-500 hover:bg-teal-600',
   },
+  amber: {
+    bg: 'bg-amber-500',
+    border: 'border-amber-500',
+    text: 'text-amber-500',
+    badge: 'bg-amber-100 text-amber-700',
+    button: 'bg-amber-500 hover:bg-amber-600',
+  },
 };
 
 export default function Books() {
@@ -99,7 +119,7 @@ export default function Books() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {books.map((book, index) => {
             const Icon = book.icon;
             const colors = colorClasses[book.color as keyof typeof colorClasses];
