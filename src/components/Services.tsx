@@ -1,4 +1,5 @@
-import { Bot, Zap, Puzzle, Brain, MessageSquare, Rocket } from 'lucide-react';
+import { Bot, Zap, Puzzle, Brain, MessageSquare, Rocket, BookOpen, Clock, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
@@ -87,8 +88,52 @@ export default function Services() {
           })}
         </div>
 
-        {/* CTA Section */}
+        {/* CTA Site Auteur Pro */}
         <div className="mt-16 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl transform -rotate-1"></div>
+          <div className="relative bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl p-8 lg:p-12 text-white">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex flex-col lg:flex-row items-center gap-8">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <BookOpen className="w-8 h-8" />
+                    <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-medium">AUTEURS</span>
+                  </div>
+                  <h3 className="text-3xl lg:text-4xl font-bold mb-3">
+                    Site Auteur Pro en 72h
+                  </h3>
+                  <p className="text-indigo-100 text-lg mb-4">
+                    Votre vitrine professionnelle pour présenter vos livres. Design moderne,
+                    responsive, optimisé SEO. De 1 à 100+ livres.
+                  </p>
+                  <div className="flex flex-wrap gap-4 text-sm">
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4" />
+                      <span>Livraison 72h</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="w-4 h-4" />
+                      <span>À partir de 199€</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex-shrink-0 flex flex-col gap-3">
+                  <Link
+                    to="/commande-site"
+                    className="inline-flex items-center justify-center gap-2 bg-white text-indigo-600 font-bold px-8 py-4 rounded-lg hover:bg-indigo-50 transition-all duration-300 shadow-lg"
+                  >
+                    Commander mon site
+                    <span className="text-xl">→</span>
+                  </Link>
+                  <p className="text-xs text-indigo-200 text-center">3 packs : Starter, Catalogue, Pro</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section IA */}
+        <div className="mt-12 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl transform rotate-1"></div>
           <div className="relative bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl p-8 lg:p-12 text-white">
             <div className="max-w-3xl mx-auto">

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Feather, Menu, X } from 'lucide-react';
 
 export default function Navigation() {
@@ -8,10 +9,10 @@ export default function Navigation() {
     <nav className="bg-slate-900 text-white sticky top-0 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <Feather className="w-8 h-8 text-indigo-400" />
             <span className="text-xl font-bold">Patrice Huetz</span>
-          </div>
+          </Link>
 
           <div className="hidden md:block">
             <div className="flex items-center space-x-8">
